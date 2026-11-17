@@ -27,8 +27,12 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses
+        run: |
+          SDK_BIN=$(ls -d "${ANDROID_HOME:-/usr/local/lib/android/sdk}"/cmdline-tools/*/bin/sdkmanager 2>/dev/null | tail -n 1)
+          if [ -n "$SDK_BIN" ]; then
+            yes | "$SDK_BIN" --licenses >/dev/null 2>&1 || true
+          fi
 
       - name: Prepare debug keystore
         run: |
