@@ -1,0 +1,6 @@
+{
+  "name": "BRSTI AI",
+  "description": "Personal AI voice assistant companion with expressive Bengali, English, and Hindi voice interaction and Android device control.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
